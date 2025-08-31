@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IsalmiComposeUi</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_sura_details">SuraDetailsActivity</string>
+</resources>
