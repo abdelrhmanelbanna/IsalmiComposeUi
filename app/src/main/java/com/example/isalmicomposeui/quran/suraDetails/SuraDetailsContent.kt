@@ -14,15 +14,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
@@ -35,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.isalmicomposeui.R
-import com.example.isalmicomposeui.quran.suresList
 
 
 @Composable
@@ -92,13 +88,17 @@ fun SuraDetailsScreen(
 
             ConstraintLayout(
                 modifier = Modifier
-                    .padding(vertical = 50.dp)
+                    .padding(vertical = 40.dp)
                      // background inside the rounded container
                     .fillMaxWidth(0.85f)
                     .align(Alignment.CenterHorizontally)
-                    .clip(RoundedCornerShape(24.dp))
+
                     .fillMaxHeight(0.9f)
-                    .background(Color.White),
+                    .background(
+                        color = Color.White.copy(alpha = 0.7f),
+                        shape = RoundedCornerShape(24.dp)
+                    )
+
 
             ) {
                 val (title,arrow,line, content) = createRefs()
@@ -169,38 +169,7 @@ fun SuraDetailsScreen(
                         )
                     }
                 }
-
-//                LazyColumn(
-//                    contentPadding = PaddingValues(bottom =300.dp),
-//                    modifier = Modifier
-//                        .padding(vertical = 8.dp )
-//                        .constrainAs(content){
-//                            top.linkTo(line.bottom)
-//                            start.linkTo(parent.start)
-//                            end.linkTo(parent.end)
-//                        }
-//                ) {
-//                    items(suraLines.size) { content  ->
-//                        Row(
-//                            modifier = Modifier
-//                                .fillMaxWidth()
-//                                .padding(8.dp),
-//                        ){
-//                            Text(
-//                                text = suraLines[content],
-//                                color = Color.Black,
-//                                fontSize = 22.sp,
-//                                textAlign = TextAlign.Right,
-//                                modifier = Modifier.padding(8.dp)
-//                                    .fillMaxWidth(),
-//                                )
-//                        }
-//
-//                    }
-//
-//                }
-
-
+                
 
 
             }
